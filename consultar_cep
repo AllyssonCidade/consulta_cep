@@ -1,0 +1,13 @@
+import requests
+
+cep = str(input('Digite o CEP'))
+url = f'https://viacep.com.br/ws/{cep}/json/'
+
+retorne = requests.get(url)
+logradouro = retorne.json()['logradouro']
+complemento = retorne.json()['complemento']
+bairro = retorne.json()['bairro']
+localidade = retorne.json()['localidade']
+uf = retorne.json()['uf']
+
+print(f'===ENDEREÇO ENCONTRADO===\n     {logradouro}\n     {bairro}\n     {localidade}\n     {uf}\n     {complemento}\n=========================')
